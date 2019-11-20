@@ -1,0 +1,27 @@
+{
+  "name": "shex-to-jsonld-context",
+  "version": "1.0.0",
+  "description": "Convert ShEx for FHIR/RDF to JSON-LD contexts",
+  "main": "index.js",
+  "scripts": {
+    "ctoj": "shex-to-json docs/AllergyIntolerance-R4.shex > docs/AllergyIntolerance-R4.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ericprud/shex-to-jsonld-context.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ericprud/shex-to-jsonld-context/issues"
+  },
+  "homepage": "https://github.com/ericprud/shex-to-jsonld-context#readme",
+  "devDependencies": {
+    "@shexjs/cli": "^1.0.0-alpha.6",
+    "@shexjs/parser": "^1.0.0-alpha.6",
+    "jsonld": "^1.8.1",
+    "request-promise": "^4.2.5"
+  }
+}
