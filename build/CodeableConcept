@@ -1,0 +1,17 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "http://janeirodigital.github.io/nhs-care-plan/flat-FHIR.ttl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "fhir": "http://hl7.org/fhir/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "CodeableConcept.coding": {
+      "@id": "fhir:CodeableConcept.coding",
+      "@context": "http://uu3.org/fhir/Coding-R4-jsonld-1.1-context.jsonld"
+    },
+    "CodeableConcept.text": {
+      "@id": "fhir:CodeableConcept.text",
+      "@context": "http://uu3.org/fhir/string-R4-jsonld-1.1-context.jsonld"
+    }
+  }
+}
