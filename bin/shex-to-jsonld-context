@@ -2,7 +2,7 @@
 
 const Fs = require('fs')
 const Path = require('path')
-const ShEx = require('@shexjs/core')
+const ShExParser = require('@shexjs/parser')
 const Ns_fh = 'http://hl7.org/fhir/'
 const Ns_fhsh = 'http://hl7.org/fhir/shape/'
 const Ns_rdf = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#'
@@ -12,9 +12,13 @@ const DTRegExp = RegExp('^(http://hl7.org/fhir/shape/[a-z]|http://www.w3.org/200
 const report = e => console.warn(e.message)
 
 function run (argv) {
-  const s = JSON.parse(Fs.readFileSync('docs/AllergyIntolerance-R4.json', 'utf8'))
+  const shexFile = argv[2] || 'docs/AllergyIntolerance-R4.json'
+  const contents = Fs.readFileSync(shexFile, 'utf8')
+  const s = shexFile.endsWith('.shex')
+        ? ShExParser.construct('file://' + shexFile).parse(contents)
+        : JSON.parse(contents)
   const c = new Converter(s)
-  const selected = process.argv.slice(2)
+  const selected = argv.slice(3)
   const todo = s.shapes.map(
     shexpr => ({ shexpr, name: shexpr.id.substr(Ns_fhsh.length)})
   ).filter(
