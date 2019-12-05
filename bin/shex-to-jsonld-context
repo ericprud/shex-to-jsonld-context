@@ -25,7 +25,7 @@ function run (argv) {
   todo.forEach(pair => {
     const res = c.convert(pair.shexpr)
     // console.log(pair.name, '################################\n', JSON.stringify(res, null, 2))
-    Fs.writeFileSync(Path.join('build', pair.name), JSON.stringify(res, null, 2))
+    Fs.writeFileSync(Path.join('build', pair.name + '.jsonld'), JSON.stringify(res, null, 2))
   })
 }
 
