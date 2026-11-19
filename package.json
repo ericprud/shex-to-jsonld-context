@@ -21,6 +21,6 @@
     "@shexjs/cli": "^1.0.0-alpha.31",
     "@shexjs/parser": "^1.0.0-alpha.7",
     "jsonld": "^9.0.0",
-    "request-promise": "^4.2.5"
+    "request-promise": "^4.2.6"
   }
 }
