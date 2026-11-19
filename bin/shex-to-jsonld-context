@@ -17,6 +17,11 @@ function run (argv) {
   const s = shexFile.endsWith('.shex')
         ? ShExParser.construct('file://' + shexFile).parse(contents)
         : JSON.parse(contents)
+  // ShExJ 2.1+ (and @shexjs/parser >= 1.0.0-alpha.2x) wraps each shape in a
+  // ShapeDecl {id, shapeExpr}; flatten those to the 2.0 {id, type: Shape, ...}.
+  s.shapes = s.shapes.map(
+    d => d.type === 'ShapeDecl' ? Object.assign({ id: d.id }, d.shapeExpr) : d
+  )
   const c = new Converter(s)
   const selected = argv.slice(3)
   const todo = s.shapes.map(

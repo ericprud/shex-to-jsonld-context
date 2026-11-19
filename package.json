@@ -4,7 +4,7 @@
   "description": "Convert ShEx for FHIR/RDF to JSON-LD contexts",
   "main": "index.js",
   "scripts": {
-    "test": "./bin/shex-to-jsonld-context docs/AllergyIntolerance-R4.shex"
+    "test": "./bin/shex-to-jsonld-context docs/AllergyIntolerance-R4.shex && git diff --exit-code build/"
   },
   "repository": {
     "type": "git",
